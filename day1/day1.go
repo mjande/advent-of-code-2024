@@ -13,7 +13,8 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Printf("Part 1: %v", part1(input))
+	fmt.Printf("Part 1: %v\n", part1(input))
+	fmt.Printf("Part 2: %v\n", part2(input))
 }
 
 func part1(input [][]int) int {
@@ -42,4 +43,21 @@ func part1(input [][]int) int {
 	}
 
 	return res
+}
+
+func part2(input [][]int) int {
+	freqMap := make(map[int]int)
+
+	for _, line := range input {
+		num := line[1]
+		freqMap[num] += 1
+	}
+
+	var result int
+	for _, line := range input {
+		num := line[0]
+		result += num * freqMap[num]
+	}
+
+	return result
 }
