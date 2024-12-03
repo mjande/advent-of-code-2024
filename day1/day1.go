@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	input, err := lib.ParseInts("day1.txt")
+	input, err := lib.ParseInts("day1.in")
 	if err != nil {
 		fmt.Println(err)
 	}
