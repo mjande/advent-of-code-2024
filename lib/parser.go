@@ -37,3 +37,12 @@ func ParseInts(filename string) ([][]int, error) {
 
 	return result, nil
 }
+
+func ParseString(filename string) (string, error) {
+	bytes, err := os.ReadFile("inputs/" + filename)
+	if err != nil {
+		return "", err
+	}
+
+	return string(bytes), nil
+}
