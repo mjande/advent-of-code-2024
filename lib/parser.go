@@ -46,3 +46,20 @@ func ParseString(filename string) (string, error) {
 
 	return string(bytes), nil
 }
+
+func ParseStrings(filename string) ([]string, error) {
+	var result []string
+
+	file, err := os.Open("inputs/" + filename)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		result = append(result, scanner.Text())
+	}
+
+	return result, nil
+}
